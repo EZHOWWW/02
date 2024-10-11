@@ -1,3 +1,6 @@
+// Ежов Дмитрий j3113 471242
+// Lab2 Hard lvl :  
+// Реализовать функцию, которая определяет, являются ли две строки изоморфными
 #include <fstream>
 #include <map>
 #include <string>
@@ -6,7 +9,7 @@
 bool is_isomorf(std::string a, std::string b)
 {
 /*
-Память: a.size() байт + b.size() байт + в худшем случае a.size() байн в map (доп данные в string, map) = O(n)
+Память: a.size() байт + b.size() байт + в худшем случае a.size() байт в map (+ доп данные в string, map) = O(n)
 Сложность O(n)
 */
     if(a.size() != b.size())
