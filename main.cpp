@@ -6,15 +6,16 @@
 #include <string>
 #include <locale>
 
-bool is_isomorf(std::string a, std::string b)
+bool is_isomorf(const std::wstring& a,const std::wstring& b)
 {
+    
 /*
-Память: a.size() байт + b.size() байт + в худшем случае a.size() байт в map (+ доп данные в string, map) = O(n)
+Память: a.size()*4 байт + b.size()*4 байт + в худшем случае a.size() байт в map (+ доп данные в string, map) = O(n)
 Сложность: O(n)
 */
     if(a.size() != b.size())
         return false;
-    std::map<char, char> isomorf;
+    std::map<wchar_t, wchar_t> isomorf;
     for(int i = 0; i < a.size(); ++i)
     {
         if(isomorf.find(a[i]) == isomorf.end())
@@ -32,17 +33,17 @@ int main()
 {    
     std::locale::global(std::locale("ru_RU.UTF-8"));
 
-    assert(is_isomorf("", "") == true);
-    assert(is_isomorf("11", "1") == false);
-    assert(is_isomorf("1", "11") == false);
-    assert(is_isomorf("aaa", "aaa") == true);
-    assert(is_isomorf("abc", "rgt") == true);
-    assert(is_isomorf("rrrtttyyy", "bbbmmmnnn") == true);
-    assert(is_isomorf("zxcvb", "asdfg") == true);
-    assert(is_isomorf("giiittt 123", "caaattt 654") == true);
+    assert(is_isomorf(L"", L"") == true);
+    assert(is_isomorf(L"11", L"1") == false);
+    assert(is_isomorf(L"1", L"11") == false);
+    assert(is_isomorf(L"aaa", L"aaa") == true);
+    assert(is_isomorf(L"abc", L"rgt") == true);
+    assert(is_isomorf(L"rrrtttyyy", L"bbbmmmnnn") == true);
+    assert(is_isomorf(L"zxcvb", L"asdfg") == true);
+    assert(is_isomorf(L"Giiittt 123", L"Caaattt 654") == true);
 
 
-    std::string a, b;
-    std::cin >> a >> b;
+    std::wstring a, b;
+    std::wcin >> a >> b;
     std::cout << (is_isomorf(a, b)?"True":"False") << std::endl;
 }
