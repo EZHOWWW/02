@@ -34,7 +34,4 @@ int main()
     std::string a, b;
     std::cin >> a >> b;
     std::cout << (is_isomorf(a, b)?"True":"False") << std::endl;
-
-
-    
 }
