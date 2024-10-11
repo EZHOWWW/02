@@ -41,6 +41,7 @@ int main()
     assert(is_isomorf(L"rrrtttyyy", L"bbbmmmnnn") == true);
     assert(is_isomorf(L"zxcvb", L"asdfg") == true);
     assert(is_isomorf(L"Giiittt 123", L"Caaattt 654") == true);
+    assert(is_isomorf(L"УРААА 123", L"УКЕЕЕ 654") == true);
 
 
     std::wstring a, b;
